@@ -1,9 +1,10 @@
-# makepkg
+# makedeb
 /*/src/
 /*/pkg/
 /*/*.log
 /*/*.log.*
 /*/logpipe.*
+/*/*.deb
 
 # source tarballs
 /**/*.tar
