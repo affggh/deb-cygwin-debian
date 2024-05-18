@@ -1,12 +1,12 @@
-Arch Cygwin
+Deb Cygwin
 ===========
 
 > [!NOTE]
 >
 > This cross-compiler suite is now also available on MSYS2 (unofficial) via [msys2-cygwin][msys2-cygwin],
-> feel free to check it out if you don't have an archlinux install.
+> feel free to check it out if you don't have a Linux install.
 
-This is an attempt to get a Cygwin cross toolchain on archlinux.
+This is a [makedeb][makedeb] port of [arch-cygwin][arch-cygwin] for using the Cygwin cross toolchain on Ubuntu / Debian.
 
 Currently, this repository contains some experimental PKGBUILDs to build a Cygwin cross compiler.
 
@@ -16,22 +16,20 @@ And possibly more packages (or some build tool wrappers) can be added in the fut
 
 > [!NOTE]
 >
-> Currently only building on x86_64 archlinux is supported, if you want to build on other architectures,
+> Currently only the latest x86_64 LTS release of Ubuntu and Debian is supported, if you want to build on other distros and architectures,
 > which is untested, you can try to follow the [Bootstrapping](#bootstrapping) instructions to build the cross compilers yourself.
 >
 > Please feel free to open an [Issue](../../issues) if you run into any problem.
 
 All packages are precompiled and available for downloading at [GitHub Releases](../../releases),
 
-to use them, add the following lines to the end of your `/etc/pacman.conf` (note pkgs are currently not signed) and sync the database using `pacman -Syu`:
+to use them, add the following lines to the end of your `/etc/apt/sources.lsit` (note pkgs are currently not signed) and sync the database using `apt update`:
 
 ```text
-[arch-cygwin]
-SigLevel = Optional
-Server = https://github.com/ookiineko/arch-cygwin/releases/download/snapshot
+deb [trusted=yes] https://github.com/ookiineko-cygport/deb-cygwin/releases/download/snapshot-deb ./
 ```
 
-Then you should be able to install packages like this: `pacman -S cygwin-gcc cygwin-libiconv cygwin-zlib`
+Then you should be able to install packages like this: `apt install cygwin-gcc`
 
 ### Building
 
@@ -41,9 +39,9 @@ Then you should be able to install packages like this: `pacman -S cygwin-gcc cyg
 >
 > You can do this by editing your `/etc/makepkg.conf` and remove `-jXX` from `MAKEFLAGS` (if any).
 
-First, clone this repository using Git and make sure you have installed `base-devel` package group from archlinux repository before proceeding.
+First, clone this repository using Git and make sure you have installed `build-essential`, `texinfo`, `automake` and `bison` before proceeding.
 
-And then simply run `makepkg -si` in a subdirectory in order to build and install that package.
+Get the [makedeb][makedeb] tool, and then simply run `makedeb -si` in a subdirectory in order to build and install that package.
 
 #### Bootstrapping
 
@@ -89,4 +87,6 @@ Special thanks to the following external sources where arch-cygwin took referenc
   * [yselkowitz's Fedora GIT](https://fedorapeople.org/cgit/yselkowitz/)
 
 <!-- References: -->
+[makedeb]: https://makedeb.org
+[arch-cygwin]: https://github.com/ookiineko/arch-cygwin.git
 [msys2-cygwin]: https://github.com/ookiineko-cygport/msys2-cygwin.git
