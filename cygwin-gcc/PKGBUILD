@@ -2,11 +2,11 @@ pkgname=cygwin-gcc
 pkgver=11.4.0
 pkgrel=1
 pkgdesc="Cross GCC for the Cygwin cross-compiler"
-arch=('x86_64')
+arch=('amd64')
 url="https://gcc.gnu.org"
 license=('GPL' 'LGPL' 'FDL' 'custom')
 groups=('cygwin-toolchain')
-depends=('zlib' 'libisl' 'libmpc'
+depends=('zlib1g-dev' 'libisl-dev' 'libmpc-dev'
          'cygwin' 'cygwin-binutils' 'cygwin-default-manifest'
          'cygwin-w32api-runtime' 'cygwin-w32api-headers')
 options=('!strip' 'staticlibs' '!emptydirs' '!buildflags')
@@ -59,7 +59,7 @@ build() {
     mkdir -p "$srcdir"/build-${_target} && cd "$srcdir"/build-${_target}
     ../gcc/configure --prefix=/usr --libexecdir=/usr/lib \
         --target=${_target} \
-        --with-bugurl=https://github.com/ookiineko-cygport/arch-cygwin/ \
+        --with-bugurl=https://github.com/ookiineko-cygport/deb-cygwin/ \
         --enable-languages=c,c++,lto \
         --enable-shared --enable-static \
         --enable-threads=posix --enable-__cxa_atexit \
