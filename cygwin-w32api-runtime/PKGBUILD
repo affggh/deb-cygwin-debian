@@ -6,7 +6,7 @@ arch=('any')
 url="http://mingw-w64.sourceforge.net"
 license=('custom')
 groups=('cygwin-toolchain')
-makedepends=('cygwin-gcc' 'cygwin-binutils' "cygwin-w32api-headers=${pkgver}")
+makedepends=('cygwin-gcc' 'cygwin-binutils' "cygwin-w32api-headers=${pkgver}-${pkgrel}")
 options=('!strip' '!buildflags' 'staticlibs' '!emptydirs')
 source=("https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/mingw-w64-v${pkgver}.tar.bz2")
 sha256sums=('3f66bce069ee8bed7439a1a13da7cb91a5e67ea6170f21317ac7f5794625ee10')
