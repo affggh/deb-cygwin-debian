@@ -10,13 +10,16 @@ makedepends=('perl' 'cocom' 'cygwin-gcc' 'cygwin-binutils'
              'cygwin-w32api-runtime' 'cygwin-w32api-headers')
 options=('!strip' '!buildflags' 'staticlibs' '!emptydirs')
 _branch="${pkgname}-${pkgver}-0-gd8b21b8c7727"
-source=("git+https://cygwin.com/git/newlib-cygwin#branch=${_branch}")
+source=("git+https://cygwin.com/git/newlib-cygwin")
 md5sums=('SKIP')
 
 _targets="x86_64-pc-cygwin"
 
 prepare() {
-  cd "$srcdir"/newlib-cygwin/winsup
+  cd "$srcdir"/newlib-cygwin
+  git checkout ${_branch}
+
+  cd winsup
   ./autogen.sh
 }
 
