@@ -2,11 +2,11 @@ pkgname=cygwin-binutils
 pkgver=2.42
 pkgrel=2
 pkgdesc="Cross binutils for the Cygwin cross-compiler"
-arch=('x86_64')
+arch=('amd64')
 url="http://www.gnu.org/software/binutils"
 license=('GPL')
 groups=('cygwin-toolchain')
-depends=('glibc' 'libelf' 'zlib' 'zstd' 'msgpack-c')
+depends=('libc6-dev' 'libelf-dev' 'zlib1g-dev' 'libzstd-dev' 'libmsgpack-dev')
 options=('!libtool' '!emptydirs')
 source=("https://ftp.gnu.org/gnu/binutils/binutils-${pkgver}.tar.gz"
         cygwin-config-rpath.patch)
