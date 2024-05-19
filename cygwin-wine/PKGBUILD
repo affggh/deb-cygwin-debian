@@ -7,7 +7,7 @@ url="http://fedoraproject.org/wiki/MinGW"
 license=('MIT')
 groups=('cygwin-toolchain')
 # https://bugs.archlinux.org/task/77413
-depends=('wine' 'libunwind' 'cygwin')
+depends=('wine' 'libunwind-dev' 'cygwin')
 source=(cygwin-wine.sh
         cygwin-winepath.sh)
 install=cygwin-wine.install
