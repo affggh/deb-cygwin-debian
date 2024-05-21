@@ -26,7 +26,7 @@ All packages are precompiled and available for downloading at [GitHub Releases](
 to use them, add the following lines to the end of your `/etc/apt/sources.lsit` (note pkgs are currently not signed) and sync the database using `apt update`:
 
 ```text
-deb [trusted=yes] https://github.com/ookiineko-cygport/deb-cygwin/releases/download/snapshot-deb ./
+deb [trusted=yes] https://github.com/affggh/deb-cygwin-debian/releases/download/snapshot-deb ./
 ```
 
 Then you should be able to install packages like this: `apt install cygwin-gcc`
